@@ -1,0 +1,87 @@
+#!/bin/zsh
+
+prompt_gm_help () {
+	echo "GM git prompt"
+}
+
+prompt_gm_setup() {
+	add-zsh-hook precmd prompt_gm_precmd
+}
+
+prompt_gm_precmd() {
+	PS1="%B%#%(?..%F{red}[%?]%f)%b "
+	RPS1=" $(prompt_gm_path)"
+}
+
+prompt_gm_path() {
+	local repo="$(prompt_gm_repopath)"
+	if [ -z "$repo" ]; then
+		echo "%B%c%b"
+		return
+	fi
+
+	local shortpath="$(prompt_gm_shortpath $repo)"
+	local branch="$(prompt_gm_branch)"
+	local syncinfos="$(prompt_gm_syncinfos)"
+
+	if prompt_gm_has_uncommitted_changes; then
+		branch="%B%F{red}${branch}%f%b"
+	elif [ -n "$syncinfos" ]; then
+		branch="%B%F{yellow}${branch}%f%b"
+	else
+		branch="%F{green}${branch}%f"
+	fi
+
+	echo "%B${shortpath}%b ${branch}${syncinfos}"
+}
+
+prompt_gm_repopath() {
+	git rev-parse --show-toplevel 2> /dev/null
+}
+
+prompt_gm_shortpath() {
+	local repo=$1
+	if [ "$repo" = "$PWD" ]; then
+		echo "$(basename $PWD)"
+	elif [ "$repo" = "$(dirname $PWD)" ]; then
+		echo "$(basename $repo)/$(basename $PWD)"
+	else
+        	echo "$(basename $repo)/\u2026/$(basename $PWD)"
+        fi
+}
+
+prompt_gm_branch() {
+	git symbolic-ref --quiet --short HEAD || git rev-parse --short HEAD
+}
+
+prompt_gm_has_uncommitted_changes() {
+	! git diff --quiet || ! git diff --cached --quiet
+}
+
+prompt_gm_syncinfos() {
+	if ! ref="$(git symbolic-ref --quiet HEAD)"; then
+		echo " (local)"
+		return
+	fi
+	local upstream="$(git for-each-ref --format='%(upstream)' $ref)"
+	if [ -z "$upstream" ]; then
+		echo " (local)"
+	elif ! git rev-parse --verify --quiet $upstream > /dev/null; then
+		echo " (deleted upstream)"
+	else
+		echo "$(prompt_gm_updown $(git rev-list --count --left-right $ref...$upstream))"
+	fi
+}
+
+prompt_gm_updown() {
+	local up down
+	if [ $1 -gt 0 ]; then
+		up=" \u2191$1"
+	fi
+	if [ $2 -gt 0 ]; then
+		down=" \u2193$2"
+	fi
+	echo "${up}${down}"
+}
+
+prompt_gm_setup

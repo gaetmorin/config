@@ -1,0 +1,41 @@
+[user]
+    name = Gaëtan Morin
+    email = gaet.morin@gmail.com
+
+[core]
+    editor = gvim -f
+
+[alias]
+    ci = commit
+    co = checkout
+    st = status
+    l = log --oneline --decorate --graph
+    summary = log --oneline --decorate --graph --simplify-by-decoration
+    top = rev-parse --show-toplevel
+
+[diff]
+    tool = meld
+
+[merge]
+    tool = meld
+
+[color]
+    ui = auto
+    status = auto
+    branch = auto
+    diff = true
+    pager = true
+
+[help]
+    format = web
+
+[credential]
+    helper = cache --timeout=3600
+
+[giggle]
+    main-window-maximized = true
+    main-window-geometry = 0x0+0+0
+    main-window-view = HistoryView
+    history-view-vpane-position = 670
+    show-graph = true
+    file-view-vpane-position = 661
