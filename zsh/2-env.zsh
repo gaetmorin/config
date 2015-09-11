@@ -24,3 +24,7 @@ export PYTHONPATH=$HOME/local/lib/python:$PYTHONPATH
 # Go path
 export GOPATH=$HOME
 export GOROOT=$HOME/local/opt/go
+
+# CD path
+export CDPATH=$HOME/src
+
