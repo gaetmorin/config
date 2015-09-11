@@ -10,20 +10,10 @@
 export TERM=xterm-256color
 
 # Local paths
-PATH=$HOME/.local/bin:$PATH
-LD_LIBRARY_PATH=$HOME/.local/lib:$LD_LIBRARY_PATH
-PYTHONPATH=$HOME/.local/lib/python:$PYTHONPATH
+export PATH=$HOME/bin:$HOME/local/bin:$PATH
+export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
+export PYTHONPATH=$HOME/local/lib/python:$PYTHONPATH
 
 # Go path
-GOPATH=$HOME/Code/go:$GOPATH
-export GOROOT=$HOME/.local/opt/go
-export GOMISC=$GOROOT/misc
-PATH=$HOME/Code/go/bin:$GOROOT/bin:$PATH
-
-
-###
-export PATH
-export LD_LIBRARY_PATH
-export PYTHONPATH
-export GOPATH
-
+export GOPATH=$HOME
+export GOROOT=$HOME/local/go
