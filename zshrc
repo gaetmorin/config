@@ -9,7 +9,7 @@
 #
 
 
-export ZSH_CONF_DIR=$HOME/Config/zsh
+export ZSH_CONF_DIR=$HOME/etc/zsh
 
 for script in $ZSH_CONF_DIR/*.zsh; do
 	source $script

@@ -16,8 +16,8 @@
 
 " ===== ADDITIONAL PLUGIN SOURCES =====
 
-    source  ~/Config/vim/pathogen/autoload/pathogen.vim
-    execute pathogen#infect('~/Config/vim/{}')
+    source  ~/etc/vim/vim-pathogen/autoload/pathogen.vim
+    execute pathogen#infect('~/etc/vim/{}')
     Helptags
 
 

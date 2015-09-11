@@ -1,4 +1,4 @@
-fpath=(~/Config/zsh/functions $fpath)
+fpath=(~/etc/zsh/functions $fpath)
 autoload -U promptinit
 promptinit
 
