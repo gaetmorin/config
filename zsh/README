@@ -1,0 +1,9 @@
+All *.zsh files in this directory are sourced by zshrc.
+
+Files are organized in levels:
+
+  0 - base zsh configuration (grml)
+  1 - overrides of the zsh configuration
+  2 - working environment (variables, aliases, etc)
+  3 - machine specific config (ignored by git)
+
