@@ -220,6 +220,8 @@
 
     " Go
     let g:go_fmt_command = 'goimports'
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
 
     " Clang complete
     let g:clang_auto_select = 1
