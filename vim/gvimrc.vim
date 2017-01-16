@@ -16,7 +16,7 @@
     colorscheme minimalist
     
     " Font
-    set guifont=Inconsolata\ 12
+    set guifont=Go\ Mono\ 10
 
     " GUI widgets (see :help guioptions)
     set guioptions=aceir
