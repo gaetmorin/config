@@ -188,23 +188,9 @@
 
 " ===== FILE Explorer =====
 
-    " Double-click to open in file beagle
-    au Filetype filebeagle map <buffer> <2-leftmouse> o
-
-    " ; and ! to prepare a command with the target path
-    function! s:filebeagle_target()
-        return b:filebeagle_directory_viewer.jump_map[line(".")].full_path
-    endfunction
-    au Filetype filebeagle map <buffer> ; :<C-U> <C-R>=<SID>filebeagle_target()<CR><Home>
-    au Filetype filebeagle map <buffer> ! ;!
-
-    " Hidden files
-    "let NERDTreeIgnore = ['\.o$','\.d$','\~$']
-    " Single click to open directories, double click for files
-    "let NERDTreeMouseMode = 2
-
-    " Toggle NERDTree
-    "map <F9> :NERDTreeToggle<CR>
+    autocmd FileType dirvish setlocal nospell
+    autocmd FileType dirvish sort r /[^\/]$/            " Directories at the top
+    autocmd FileType dirvish sort r @\v/\.[^\/]+/?$@    " Hidden files at the bottom
 
 
 
