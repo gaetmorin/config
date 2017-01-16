@@ -22,7 +22,7 @@ export PATH=$PATH:/usr/local/go/bin
 # Local paths
 export PATH=$HOME/bin:$HOME/local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
-export PYTHONPATH=$HOME/local/lib/python:$PYTHONPATH
+export PYTHONPATH=$HOME/local
 
 # Go path
 export GOPATH=$HOME
