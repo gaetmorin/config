@@ -16,6 +16,9 @@ for dir in $HOME/local/opt/*/bin; do
     fi
 done
 
+# For a Go toolchain installed in a standard location
+export PATH=$PATH:/usr/local/go/bin
+
 # Local paths
 export PATH=$HOME/bin:$HOME/local/bin:$PATH
 export LD_LIBRARY_PATH=$HOME/local/lib:$LD_LIBRARY_PATH
@@ -23,7 +26,6 @@ export PYTHONPATH=$HOME/local/lib/python:$PYTHONPATH
 
 # Go path
 export GOPATH=$HOME
-export GOROOT=$HOME/local/opt/go
 
 # CD path
 export CDPATH=$HOME/src
