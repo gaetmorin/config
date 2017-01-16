@@ -110,10 +110,6 @@
     set breakindentopt=shift:-4
     set sbr=...\ 
 
-    " Show line numbers
-    " set number
-    " set numberwidth=5
-
     " Show typed command in status bar
     set showcmd
 
