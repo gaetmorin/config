@@ -147,10 +147,10 @@
     set softtabstop=4
 
     " Use 8-char tabs for C family languages
-    au Filetype c,cpp,objc,go setlocal noexpandtab
-    au Filetype c,cpp,objc,go setlocal tabstop=8
-    au Filetype c,cpp,objc,go setlocal shiftwidth=8
-    au Filetype c,cpp,objc,go setlocal softtabstop=8
+    au Filetype c,cpp,objc,go,javascript setlocal noexpandtab
+    au Filetype c,cpp,objc,go,javascript setlocal tabstop=8
+    au Filetype c,cpp,objc,go,javascript setlocal shiftwidth=8
+    au Filetype c,cpp,objc,go,javascript setlocal softtabstop=8
 
 
 
