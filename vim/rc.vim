@@ -185,8 +185,7 @@
 " ===== FILE Explorer =====
 
     autocmd FileType dirvish setlocal nospell
-    autocmd FileType dirvish sort r /[^\/]$/            " Directories at the top
-    autocmd FileType dirvish sort r @\v/\.[^\/]+/?$@    " Hidden files at the bottom
+    let g:dirvish_mode = ':sort r /[^\/]$/'              " Directories at the top
 
 
 
