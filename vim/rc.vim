@@ -205,15 +205,6 @@
     let g:go_highlight_functions = 1
     let g:go_highlight_methods = 1
 
-    " Clang complete
-    let g:clang_auto_select = 1
-    let g:clang_complete_auto = 1
-    let g:clang_complete_copen = 0
-    let g:clang_hl_errors = 1
-    let g:clang_close_preview = 1
-    let g:clang_use_library = 1
-    let g:clang_complete_macros = 1
-
 
 
 
