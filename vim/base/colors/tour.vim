@@ -14,7 +14,7 @@ let colors_name = "tour"
 
 " Vim >= 7.0 specific colors
 if version >= 700
-  hi CursorLine guibg=#FFFFDD
+  hi CursorLine guibg=#FDF6E3
   hi CursorLineNr guifg=#2A6496 guibg=#F5F5F5 gui=bold
 
   "  hi CursorColumn guibg=#2d2d2d
@@ -31,9 +31,9 @@ endif
 
 " General colors
 hi Cursor 		guifg=#F5F5F5 guibg=#375EAB gui=none
-hi Normal 		guifg=#333333 guibg=#FFFFDD gui=none
-hi NonText 		guifg=#999999 guibg=#FFFFDD gui=none
-hi LineNr 		guifg=#999999 guibg=#FFFFDD gui=none
+hi Normal 		guifg=#333333 guibg=#FDF6E3 gui=none
+hi NonText 		guifg=#999999 guibg=#FDF6E3 gui=none
+hi LineNr 		guifg=#999999 guibg=#FDF6E3 gui=none
 hi StatusLine 	guifg=#444444 guibg=#E0EBF5 gui=none
 hi StatusLineNC guifg=#444444 guibg=#FFFFFF gui=none
 hi VertSplit 	guifg=#FFFFFF guibg=#FFFFFF gui=none

@@ -44,7 +44,8 @@ hi SpecialKey	guifg=#777777 guibg=NONE gui=bold
 hi Comment 		guifg=#999999 guibg=NONE gui=none
 hi Todo 		guifg=#999999 guibg=NONE gui=bold
 hi String 		guifg=#777777 guibg=NONE gui=none
-hi Special		guifg=#777777 guibg=NONE gui=bold
+hi SpecialChar	guifg=#777777 guibg=NONE gui=bold
+hi Special		guifg=#333333 guibg=NONE gui=none
 hi Identifier 	guifg=#333333 guibg=NONE gui=none
 hi Constant 	guifg=#333333 guibg=NONE gui=none
 hi Number		guifg=#333333 guibg=NONE gui=none
