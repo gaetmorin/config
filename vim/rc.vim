@@ -185,7 +185,7 @@
 " ===== FILE Explorer =====
 
     autocmd FileType dirvish setlocal nospell
-    let g:dirvish_mode = ':sort r /[^\/]$/'              " Directories at the top
+    let g:dirvish_mode = ':sort ,^.*[\/],'     " Directories at the top
 
 
 
