@@ -78,6 +78,23 @@
     endfunction
     inoremap <tab> <C-r>=InsertTabWrapper()<cr>
 
+    " Omnicomplete menu
+    function! Auto_complete_string()
+        if pumvisible()
+            return "\<C-n>"
+        else
+            return "\<C-x>\<C-o>\<C-r>=Auto_complete_opened()\<CR>"
+        end
+    endfunction
+    function! Auto_complete_opened()
+        if pumvisible()
+            return "\<Down>"
+        end
+        return ""
+    endfunction
+    inoremap <expr> <Nul> Auto_complete_string()
+    inoremap <expr> <C-Space> Auto_complete_string()
+
     " Disable scratch window on completion
     set completeopt=longest,menuone
 
@@ -90,11 +107,9 @@
 
 " ===== APPEARANCE =====
 
-    " Syntax coloring: only in gvim
-    syntax off
-
-    " Highlight column 80 and 120
-    " set colorcolumn=80,120
+    syntax on
+    set background=dark
+    colorscheme nofrils-gm
 
     " Show cursor position in status bar
     set ruler
@@ -116,12 +131,6 @@
     " Show a status line even when there is only one window
     set laststatus=2
 
-    " Configure for 'bright text on dark background' terminal
-    set background=dark
-
-    " Use 256 colors in terminal
-    set t_Co=256
-
 
 
 
@@ -134,19 +143,13 @@
     set smartindent
     set smarttab
 
-    " Use spaces instead of tabs
-    set expandtab
+    " Don't use spaces instead of tabs
+    set noexpandtab
 
-    " Default tab are 4 character wide
-    set tabstop=4
-    set shiftwidth=4
-    set softtabstop=4
-
-    " Use 8-char tabs for C family languages
-    au Filetype c,cpp,objc,go,javascript setlocal noexpandtab
-    au Filetype c,cpp,objc,go,javascript setlocal tabstop=8
-    au Filetype c,cpp,objc,go,javascript setlocal shiftwidth=8
-    au Filetype c,cpp,objc,go,javascript setlocal softtabstop=8
+    " Default tab are 8 character wide
+    set tabstop=8
+    set shiftwidth=8
+    set softtabstop=8
 
 
 
@@ -169,14 +172,11 @@
 
 " ===== SPELL CHECKING =====
 
-    " Load languages
+    set spell
     set spelllang=en,fr
 
     " Propose top 5 results
     set spellsuggest=5
-
-    " Spell checking: only in gvim
-    set nospell
 
 
 
@@ -209,13 +209,25 @@
 
 
 
+" ===== TERMINAL EMULATOR =====
+
+    if has('nvim')
+        autocmd BufEnter term://* startinsert
+        autocmd TermOpen * setlocal nospell
+        autocmd TermOpen * setlocal statusline=%{b:term_title}
+
+        tnoremap <Esc> <C-\><C-n>
+        tnoremap <C-w> <C-\><C-n><C-w>
+    endif
+
+
+
+
+
 " ===== KEY MAPPINGS =====
 
     " Make %% expand to the working directory on the command line
     cabbr <expr> %% expand('%:p:h')
-
-    " Completion
-    imap <C-Space> <C-X><C-O>
 
     " Toggle spell checking
     map <F4> :set spell!<bar>set spell?<CR>
