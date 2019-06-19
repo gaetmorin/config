@@ -201,9 +201,8 @@
 
     " Go
     let g:go_fmt_command = 'goimports'
-    let g:go_snippet_case_type = 'camelcase'
+    let g:go_addtags_transform = 'camelcase'
     let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
 
 
 
